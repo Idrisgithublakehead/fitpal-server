@@ -57,9 +57,10 @@ router.put('/:id' , (req: Request , res: Response) => {
 
 
 router.delete('/:id', (req: Request, res: Response) => {
+    const index: number = exercises.findIndex(e => e.id.toString() == req.params.id);
 
 
-    
+
 });
 
 
