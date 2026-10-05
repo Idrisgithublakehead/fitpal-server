@@ -31,4 +31,17 @@ router.put('/:id', (req, res) => {
     exercises[index].name = req.body.name;
     return res.status(204).json({ msg: 'exercise updated' });
 });
+router.delete('/:id', (req, res) => {
+    const index = exercises.findIndex(e => e.id.toString() == req.params.id);
+    // start the if method
+    if (index === -1) {
+        //throw a 404
+        //show message not found
+        return res.status(404).json({ err: 'Exercise not found' });
+    }
+    //slice starts here
+    exercises.splice(index, 1);
+    //return a 200 if its deleted scuesffull
+    return res.status(200).json({ msg: 'Exercise deleted successfully' });
+});
 module.exports = router;

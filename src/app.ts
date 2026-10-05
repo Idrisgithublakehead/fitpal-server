@@ -14,9 +14,15 @@ app.use(express.json());
 
 app.use('/api/v1/exercises', exercises);
 
-// start the server 
-app.listen(4000);
+// start the server/ use random port on render server as 4000 as the fallback
+const port = process.env.PORT || 4000;
 
-//confirm server running
-console.log('express running on port 4000');
+
+app.listen(port, () => {
+    //confirm server running
+console.log('express running on port {port}');
+});
+
+
+
 
