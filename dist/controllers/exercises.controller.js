@@ -44,4 +44,4 @@ router.delete('/:id', (req, res) => {
     //return a 200 if its deleted scuesffull
     return res.status(200).json({ msg: 'Exercise deleted successfully' });
 });
-module.exports = router;
+exports.default = router;
