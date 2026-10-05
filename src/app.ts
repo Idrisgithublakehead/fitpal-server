@@ -1,4 +1,6 @@
 import express, { Application } from "express";
+import mongoose, { mongo } from "mongoose";
+
 
 
 
@@ -10,6 +12,15 @@ const exercises:any = require('./controllers/exercises.controller');
 const app: Application = express();
 
 app.use(express.json());
+
+
+// mongoose db connection
+
+const db: string = process.env.DB || '';
+
+mongoose.connect(db)
+    .then(() => console.log('connected to MONGODB'))
+    .catch((err) => console.log(`connection ERROR: ${err}`));
 
 
 app.use('/api/v1/exercises', exercises);
